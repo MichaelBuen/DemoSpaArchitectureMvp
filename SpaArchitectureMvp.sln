@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaArchitectureMvp", "SpaArchitectureMvp\SpaArchitectureMvp.csproj", "{18068B06-4736-4C29-986F-A678DC758F52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{BC42E605-940C-46DF-BFFA-AE4A5FF73C23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18068B06-4736-4C29-986F-A678DC758F52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18068B06-4736-4C29-986F-A678DC758F52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18068B06-4736-4C29-986F-A678DC758F52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18068B06-4736-4C29-986F-A678DC758F52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC42E605-940C-46DF-BFFA-AE4A5FF73C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC42E605-940C-46DF-BFFA-AE4A5FF73C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC42E605-940C-46DF-BFFA-AE4A5FF73C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC42E605-940C-46DF-BFFA-AE4A5FF73C23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

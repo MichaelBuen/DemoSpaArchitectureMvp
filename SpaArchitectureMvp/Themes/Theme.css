@@ -1,0 +1,69 @@
+﻿/* html body tag style */
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: arial;
+    font-size: 140%;
+    color: #fff;
+}
+
+/* h1 tag style */
+h1 {
+    margin: 0px;
+    padding: 0px;
+    font-family: arial;
+    font-size: 140%;
+}
+
+/* CSS Style Rule for Div having id="outer-container" */
+/* outer-container will hold the whole assembly of 
+   nested div overlays. */
+/* It will also center align the design */
+#outer-container {
+    width: 1090px;
+    margin: 0 auto;
+}
+
+/* footer CSS Style Rule */
+header {
+    width: 1090px;
+    height: 90px;
+    background-color: blue;
+}
+
+/* footer CSS Style Rule */
+footer {
+    width: 1090px;
+    background-color: red;
+}
+
+/* content-container CSS Style Rule */
+/* It will hold the main content of the page. */
+/* it is the left side column */
+/* in this 3 columns div layout */
+section {
+    width: 808px;
+    height: 400px;
+    background-color: green;
+    margin: 2px 0px 2px 0px;
+    float: left;
+}
+
+/* sidebar1 and sidebar2 are 2nd and 3rd */
+/* div columns in this div layout design */
+/* both are placed at the right side of */
+/* content container */
+aside {
+    width: 280px;
+    height: 400px;
+    background-color: orange;
+    margin: 2px 0px 2px 2px;
+    float: left;
+}
+
+/* Top navigation CSS Style Rule */
+nav {
+    width: 1090px;
+    background-color: black;
+    margin: 2px 0px 0px 0px;
+}

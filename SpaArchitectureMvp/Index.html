@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+   
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-ui-router.min.js"></script>
+
+    <script src="Scripts/angular-animate.js"></script>
+
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+
+
+    <script src="Scripts/showdown.min.js"></script>
+
+    <script src="App/App.js"></script>
+
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />  
+
+
+    <link rel="stylesheet" href="Themes/Theme.css" />
+    
+</head>
+
+<body ng-app="App">
+    <div id="outer-container">
+        <header>
+            <h1>Header {{1 + 2}}</h1>
+        </header>
+        <div style="clear: both">
+        </div>
+        <nav>
+            <h1>{ Top Navigation }</h1>
+        </nav>
+
+        <div style="clear: both">
+        </div>
+
+        <section ui-view>           
+            {{1+2}}
+        </section>
+        <aside>
+            Sidebar
+        </aside>
+        
+        <div style="clear: both">
+        </div>
+
+        <footer>
+            <h1>Footer</h1>
+        </footer>
+    </div>
+
+
+
+    <pre>
+      <!-- Here's some values to keep an eye on in the sample in order to understand $state and $stateParams -->
+      $state = {{$state.current.name}}
+      $stateParams = {{$stateParams}}
+      $state full url = {{ $state.$current.url.source }}
+      <!-- $state.$current is not a public api, we are using it to
+           display the full url for learning purposes-->
+    </pre>
+
+</body>
+
+
+</html>
