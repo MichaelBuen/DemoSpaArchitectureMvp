@@ -8,13 +8,10 @@ namespace Domain
 {
     public class Class1
     {
-        Sample c;
 
         public Class1()
         {
-            c += () => Console.WriteLine("Hello");
         }
     }
 
-    delegate void Sample();
 }
