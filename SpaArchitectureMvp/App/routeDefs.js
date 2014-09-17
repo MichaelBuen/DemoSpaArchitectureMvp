@@ -6,10 +6,12 @@ define(['/App/TheApp.js'], function (app) {
     [
       '$stateProvider',
       '$urlRouterProvider',
+      '$locationProvider',
       '$couchPotatoProvider',
       function (
         $stateProvider,
         $urlRouterProvider,
+        $locationProvider,
         $couchPotatoProvider
       ) {
 
@@ -44,6 +46,8 @@ define(['/App/TheApp.js'], function (app) {
 
 
         $urlRouterProvider.otherwise('/');
+
+        $locationProvider.html5Mode(true);
 
         return; // Kel
 
