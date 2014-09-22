@@ -9,7 +9,7 @@ require.config({
         'angular': '/Scripts/angular',
         'angular-ui-router': '/Scripts/angular-ui-router',
         'angular-couch-potato': '/Scripts/angular-couch-potato',
-        'showdown' : '/Scripts/showdown.js',
+        'showdown' : '/Scripts/showdown',
         'views': '/views'
 
     },
@@ -42,7 +42,7 @@ And this:
 
 */
 
-require(['/App/TheApp.js', 'angular', '/Scripts/showdown.js', '/App/app-init.js'], function (app, angular) {
+require(['/App/TheApp.js', 'angular', 'showdown', '/App/app-init.js'], function (app, angular) {
 
 
     angular.element(document).ready(function () {
