@@ -6,6 +6,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
 
+
+using SpaArchitectureMvp.App_Start.OtherComponents;
+
+
 namespace SpaArchitectureMvp
 {
     public static class WebApiConfig
@@ -28,8 +32,20 @@ namespace SpaArchitectureMvp
 
             //config.Formatters.Add(new BrowserJsonFormatter());
 
+
+
+
+
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.MediaTypeMappings.Add(new System.Net.Http.Formatting.QueryStringMapping("xml", "true", "application/xml"));
-            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
+            
+            
+            // text/html allows us to view JSON directly in browser even we don't use tools such as REST Console
+            //GlobalConfiguration.Configuration.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
+
+            // We remove the built in Json serializer
+            config.Formatters.Remove(config.Formatters.JsonFormatter);
+            // and use Jil, fastest JSON Serializer
+            config.Formatters.Insert(0, new JilFormatter());
 
 
         }
@@ -51,6 +67,6 @@ namespace SpaArchitectureMvp
     //}
 
 
-
+    
 
 }
