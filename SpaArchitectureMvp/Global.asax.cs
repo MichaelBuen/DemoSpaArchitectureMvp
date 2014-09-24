@@ -35,7 +35,7 @@ namespace SpaArchitectureMvp
 
         public override void Dispose()
         {
-            _container.Dispose();
+            if (_container != null) _container.Dispose();
             base.Dispose();
         }
     }
