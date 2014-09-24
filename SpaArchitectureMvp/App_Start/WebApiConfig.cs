@@ -1,6 +1,9 @@
-﻿using System;
+﻿
+using DryIoc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Web.Http;
 
 namespace SpaArchitectureMvp
@@ -28,21 +31,26 @@ namespace SpaArchitectureMvp
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.MediaTypeMappings.Add(new System.Net.Http.Formatting.QueryStringMapping("xml", "true", "application/xml"));
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
 
+
         }
     }
 
 
-    public class BrowserJsonFormatter : System.Net.Http.Formatting.JsonMediaTypeFormatter
-    {
-        public BrowserJsonFormatter()
-        {
-            this.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
-        }
+    //public class BrowserJsonFormatter : System.Net.Http.Formatting.JsonMediaTypeFormatter
+    //{
+    //    public BrowserJsonFormatter()
+    //    {
+    //        this.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
+    //    }
 
-        public override void SetDefaultContentHeaders(Type type, System.Net.Http.Headers.HttpContentHeaders headers, System.Net.Http.Headers.MediaTypeHeaderValue mediaType)
-        {
-            base.SetDefaultContentHeaders(type, headers, mediaType);
-            headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-        }
-    }
+    //    public override void SetDefaultContentHeaders(Type type, System.Net.Http.Headers.HttpContentHeaders headers, System.Net.Http.Headers.MediaTypeHeaderValue mediaType)
+    //    {
+    //        base.SetDefaultContentHeaders(type, headers, mediaType);
+    //        headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+    //    }
+    //}
+
+
+
+
 }

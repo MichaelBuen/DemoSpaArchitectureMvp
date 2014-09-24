@@ -9,6 +9,10 @@ namespace SpaArchitectureMvp.Controllers
 {
     public class ReservationController : ApiController
     {
+
+        public ISampleService SampleService { get; set; }
+
+
         // GET: api/Reservation
         public IEnumerable<string> Get()
         {
@@ -18,7 +22,8 @@ namespace SpaArchitectureMvp.Controllers
         // GET: api/Reservation/5
         public string Get(int id)
         {
-            return "value";
+            //return "Hello Yeah";
+            return this.SampleService.GetMessage();
         }
 
         // POST: api/Reservation
