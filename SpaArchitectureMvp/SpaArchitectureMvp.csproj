@@ -14,13 +14,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SpaArchitectureMvp</RootNamespace>
     <AssemblyName>SpaArchitectureMvp</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,13 +44,20 @@
     <Reference Include="DryIoc">
       <HintPath>..\packages\DryIoc.dll.1.4.0\lib\net40\DryIoc.dll</HintPath>
     </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="Jil">
       <HintPath>..\packages\Jil.2.1.0\lib\net45\Jil.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.4.0.1.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="Sigil">
       <HintPath>..\packages\Sigil.4.2.2\lib\net45\Sigil.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
@@ -58,16 +66,14 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -85,6 +91,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\config.js" />
+    <Content Include="App\Product\Controller.js" />
+    <Content Include="App\Product\Template.html" />
     <Content Include="App\RequireMain.js" />
     <Content Include="App\routeDefs.js" />
     <Content Include="App\Board\Controller.js" />
@@ -94,6 +102,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\angular-couch-potato.js" />
     <Content Include="Scripts\angular-scenario.js" />
@@ -120,7 +129,6 @@
     <Content Include="App\x_App.js" />
     <Content Include="App\Welcome\Template.html" />
     <Content Include="Global.asax" />
-    <Content Include="Index.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
@@ -430,7 +438,16 @@
   <ItemGroup>
     <Compile Include="App_Start\OtherComponents\JilFormatter.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ProductCategoryController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -460,6 +477,24 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\JunBet\UnitTestFriendlyDal\UnitTestFriendlyDal.csproj">
+      <Project>{174d3964-209d-4338-ada0-052c224c0af9}</Project>
+      <Name>UnitTestFriendlyDal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainMapping\DomainMapping.csproj">
+      <Project>{3638700c-9c7d-49d1-89e6-75886ba2665c}</Project>
+      <Name>DomainMapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{bc42e605-940c-46df-bffa-ae4a5ff73c23}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dto\Dto.csproj">
+      <Project>{4b7f67f8-d31b-4dd6-92e6-23ae07ceec39}</Project>
+      <Name>Dto</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

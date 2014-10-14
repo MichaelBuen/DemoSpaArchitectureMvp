@@ -1,0 +1,32 @@
+﻿Nice Product!
+
+{{prod.productMessage}}
+
+
+<br/>
+
+<div>
+    <label>Product NameX</label>
+</div>
+<div>
+    <input ng-model="prod.productDto.ProductName" />
+</div>
+<div>
+    <label>Product Category</label>
+</div>
+<div>
+    <select ng-model="prod.productDto.ProductCategoryId" ng-options="item.Id as item.Name for item in prod.categories"></select>
+</div>
+
+<br />
+
+<div>
+    <input type="submit" class="btn btn-primary" ng-click="prod.save()" />
+</div>
+
+
+<hr/>
+
+ProductID: {{prod.productId}}
+
+DTO: {{prod.productDto}}

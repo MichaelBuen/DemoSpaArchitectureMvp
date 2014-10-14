@@ -26,22 +26,31 @@ define(['/App/TheApp.js'], function (app) {
 
 
         $stateProvider
-          .state('home', {
-              url: '/',
-              controller: 'WelcomeController',
-              templateUrl: '/App/Welcome/Template.html',              
-              resolve: {
-                  dummy: $couchPotatoProvider.resolveDependencies(['/App/Welcome/Controller.js'])
-              }
-          })
-          .state('board', {
-              url: '/board',
-              controller: 'BoardController',
-              templateUrl: '/App/Board/Template.html',
-              resolve: {
-                  dummy: $couchPotatoProvider.resolveDependencies(['/App/Board/Controller.js'])
-              }
-          });
+            .state('home', {
+                url: '/',
+                controller: 'WelcomeController',
+                templateUrl: '/App/Welcome/Template.html',              
+                resolve: {
+                    dummy: $couchPotatoProvider.resolveDependencies(['/App/Welcome/Controller.js'])
+                }
+            })
+            .state('board', {
+                url: '/board',
+                controller: 'BoardController',
+                templateUrl: '/App/Board/Template.html',
+                resolve: {
+                    dummy: $couchPotatoProvider.resolveDependencies(['/App/Board/Controller.js'])
+                }
+            })
+            .state('product', {
+                url: '/product',
+                controller: 'ProductController',
+                templateUrl: '/App/Product/Template.html',
+                resolve: {
+                    dummy: $couchPotatoProvider.resolveDependencies(['/App/Product/Controller.js'])
+                }
+            });
+
           
 
 

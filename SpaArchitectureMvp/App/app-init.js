@@ -13,8 +13,8 @@ define(['/App/TheApp.js', '/App/routeDefs.js'], function (app) {
     
 
     app.run([
-      '$couchPotato', '$state', '$stateParams', '$rootScope',
-      function ($couchPotato, $state, $stateParams, $rootScope) {
+      '$couchPotato', '$state', '$stateParams', '$rootScope', '$resource',
+      function ($couchPotato, $state, $stateParams, $rootScope, $resource) {
                     
           // by assigning the couchPotato service to the lazy property, we
           // the register functions will know to run-time-register components

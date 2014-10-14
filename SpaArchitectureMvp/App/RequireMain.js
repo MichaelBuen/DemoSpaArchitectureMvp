@@ -7,6 +7,8 @@ require.config({
     paths: {
 
         'angular': '/Scripts/angular',
+
+        'daAngularNgResource': '/Scripts/angular-resource',
         'angular-ui-router': '/Scripts/angular-ui-router',
         'angular-couch-potato': '/Scripts/angular-couch-potato',
         'showdown' : '/Scripts/showdown',

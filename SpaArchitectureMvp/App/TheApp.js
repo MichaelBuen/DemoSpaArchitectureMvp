@@ -1,16 +1,18 @@
 ﻿
 define(
 
-  ['angular', 'angular-couch-potato', 'angular-ui-router'],
-  function (angular, couchPotato) {
+  ['angular', 'angular-couch-potato', 'angular-ui-router', 'daAngularNgResource'],
+  function (angular, couchPotato, uiRouter, ngResource) {
 
       
-      var app = angular.module('app', ['scs.couch-potato', 'ui.router']);
+      var app = angular.module('app', ['scs.couch-potato', 'ui.router', 'ngResource']);
 
+      
       // have Couch Potato set up the registerXXX functions on the app so that
       // registration of components is as easy as can be
 
 
+      // Showdown comes from showdown.js
       app.directive('markdown', function () {
           var converter = new Showdown.converter();
           var link = function (scope, element, attrs, model) {
