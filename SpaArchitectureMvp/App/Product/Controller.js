@@ -11,8 +11,8 @@ define(['/App/TheApp.js'], function (app) {
 
 
           self.productDto = {
-              productName: '',
-              productCategoryId : null
+              ProductName: 'xxx',
+              ProductCategoryId : null
           };
 
           self.productCategories = [];
@@ -29,7 +29,7 @@ define(['/App/TheApp.js'], function (app) {
 
           self.save = function () {
               productRest.save(self.productDto, function (data) {
-                  self.productId = data;
+                  self.productId = data.SavedId;
                   
               }, function (err) {
                   alert(err.data.ExceptionMessage)

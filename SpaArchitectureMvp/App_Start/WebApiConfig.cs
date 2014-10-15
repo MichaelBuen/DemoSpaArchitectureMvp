@@ -1,4 +1,5 @@
-﻿
+﻿#define UseJil
+
 using DryIoc;
 using System;
 using System.Collections.Generic;
@@ -46,11 +47,13 @@ namespace SpaArchitectureMvp
 #else
             // text/html allows us to view JSON directly in browser even we don't use tools such as REST Console
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
-#endif
-
 
             var jsonFormatter = config.Formatters.OfType<System.Net.Http.Formatting.JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
+
+
+#endif
+
 
 
 
