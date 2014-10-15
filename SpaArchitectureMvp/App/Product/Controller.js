@@ -11,8 +11,8 @@ define(['/App/TheApp.js'], function (app) {
 
 
           self.productDto = {
-              ProductName: '',
-              ProductCategoryId : null
+              productName: '',
+              productCategoryId : null
           };
 
           self.productCategories = [];

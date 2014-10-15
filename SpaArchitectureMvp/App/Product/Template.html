@@ -9,13 +9,13 @@
     <label>Product NameX</label>
 </div>
 <div>
-    <input ng-model="prod.productDto.ProductName" />
+    <input ng-model="prod.productDto.productName" />
 </div>
 <div>
     <label>Product Category</label>
 </div>
 <div>
-    <select ng-model="prod.productDto.ProductCategoryId" ng-options="item.Id as item.Name for item in prod.categories"></select>
+    <select ng-model="prod.productDto.productCategoryId" ng-options="item.id as item.name for item in prod.categories"></select>
 </div>
 
 <br />

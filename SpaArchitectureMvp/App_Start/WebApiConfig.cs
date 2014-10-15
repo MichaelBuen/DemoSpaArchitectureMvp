@@ -37,15 +37,21 @@ namespace SpaArchitectureMvp
 
 
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.MediaTypeMappings.Add(new System.Net.Http.Formatting.QueryStringMapping("xml", "true", "application/xml"));
-            
-            
-            // text/html allows us to view JSON directly in browser even we don't use tools such as REST Console
-            //GlobalConfiguration.Configuration.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
 
+#if UseJil
             // We remove the built in Json serializer
             config.Formatters.Remove(config.Formatters.JsonFormatter);
             // and use Jil, fastest JSON Serializer
             config.Formatters.Insert(0, new JilFormatter());
+#else
+            // text/html allows us to view JSON directly in browser even we don't use tools such as REST Console
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
+#endif
+
+
+            var jsonFormatter = config.Formatters.OfType<System.Net.Http.Formatting.JsonMediaTypeFormatter>().First();
+            jsonFormatter.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
+
 
 
         }

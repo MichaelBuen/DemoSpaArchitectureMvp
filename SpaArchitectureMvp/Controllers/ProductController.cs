@@ -28,11 +28,11 @@ namespace SpaArchitectureMvp.Controllers
 
 
         
-        public int Post(ProductDto dto)
+        public object Post(ProductDto dto)
         {
             using (IDataStore ds = new DataStore(_sf))
             {
-                return TheProduction.Product.Save(ds,dto);
+                return new { SavedId = TheProduction.Product.Save(ds,dto) };
             }
         }
     }
