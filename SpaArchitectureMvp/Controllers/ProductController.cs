@@ -12,15 +12,15 @@ namespace SpaArchitectureMvp.Controllers
     public class ProductController : ApiController
     {
 
-        NHibernate.ISessionFactory _sf;
-        public ProductController(NHibernate.ISessionFactory sf)
+        IDomainAccessFactory _daf;
+        public ProductController(IDomainAccessFactory daf)
         {
-            _sf = sf;
+            _daf = daf;
         }
 
         public IEnumerable<string> Get()
         {
-            using(IDataStore ds = new DataStore(_sf))
+            using(var ds = _daf.OpenDomainAccess())
             {
                 return ds.Query<TheProduction.Product>().Select(x => x.ProductName).ToList();
             }
@@ -30,7 +30,7 @@ namespace SpaArchitectureMvp.Controllers
         
         public object Post(ProductDto dto)
         {
-            using (IDataStore ds = new DataStore(_sf))
+            using (var ds = _daf.OpenDomainAccess())
             {
                 return new { SavedId = TheProduction.Product.Save(ds,dto) };
             }

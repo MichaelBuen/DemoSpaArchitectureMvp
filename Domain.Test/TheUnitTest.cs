@@ -10,7 +10,8 @@ namespace Domain.Test
         [TestMethod]
         public void TestMethod1()
         {
-            using (IDataStore ds = new DataStore(Common.BuildSessionFactory()))
+            var df = Common.BuildDomainAccessFactory();
+            using (var ds = df.OpenDomainAccess())
             {
                 // Arrange
                 string expectedProduct = "Tesla";

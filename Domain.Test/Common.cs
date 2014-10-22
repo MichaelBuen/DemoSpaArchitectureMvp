@@ -4,12 +4,19 @@ using DomainMapping;
 
 using NHibernate;
 using System;
+using UnitTestFriendlyDal;
 
 
 public static class Common
 {
 
-    public static ISessionFactory BuildSessionFactory()
+    public static IDomainAccessFactory BuildDomainAccessFactory()
+    {
+        var daf = new DomainAccessFactory(Common.BuildSessionFactory());
+        return daf;
+    }
+
+    static ISessionFactory BuildSessionFactory()
     {
         var sf = Mapper.BuildSessionFactory(useUnitTest: true);
 

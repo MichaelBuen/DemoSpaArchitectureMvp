@@ -16,7 +16,7 @@ namespace Domain
             public int ProductCategoryId { get; set; }
             public string ProductCategoryName { get; set; }
 
-            public static IEnumerable<ProductCategoryDto> GetAll(IDataStore ds)
+            public static IEnumerable<ProductCategoryDto> GetAll(IDomainAccess ds)
             {
                 return ds.Query<ProductCategory>().MakeCacheable().ToList()
                     .Select(x => new ProductCategoryDto { Id = x.ProductCategoryId, Name = x.ProductCategoryName }); 

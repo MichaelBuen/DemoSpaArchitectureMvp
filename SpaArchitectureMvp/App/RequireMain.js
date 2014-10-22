@@ -24,6 +24,10 @@ require.config({
 
         'angular-ui-router': {
             deps: ['angular']
+        },
+
+        'daAngularNgResource': {
+            deps: ['angular']
         }
 
     }

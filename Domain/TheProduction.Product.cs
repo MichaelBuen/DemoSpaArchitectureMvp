@@ -20,7 +20,7 @@ namespace Domain
             public              TheProduction.ProductCategory   ProductCategory { get; protected internal set; }
             public              string                          ProductName     { get; protected internal set; }
 
-            public static int Save(IDataStore ds, ProductDto dto)
+            public static int Save(IDomainAccess ds, ProductDto dto)
             {
                 var p = new Product
                 {

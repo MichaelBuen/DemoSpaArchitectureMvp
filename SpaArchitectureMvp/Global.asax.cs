@@ -5,6 +5,8 @@ using System.Web.Http;
 using DryIoc;
 using System.Reflection;
 
+using UnitTestFriendlyDal;
+
 namespace SpaArchitectureMvp
 {
     public class WebApiApplication : System.Web.HttpApplication
@@ -28,9 +30,9 @@ namespace SpaArchitectureMvp
 
             _container.Register<ISampleService, SampleService>(DryIoc.Reuse.Singleton);
 
-            _container.Register<ISampleService, SampleService>(DryIoc.Reuse.Singleton);
-
             _container.RegisterDelegate<NHibernate.ISessionFactory>(x => DomainMapping.Mapper.SessionFactory, DryIoc.Reuse.Singleton);
+
+            _container.RegisterDelegate<IDomainAccessFactory>(x => new DomainAccessFactory(_container.Resolve<NHibernate.ISessionFactory>()), DryIoc.Reuse.Singleton);
 
 
             GlobalConfiguration.Configuration.Services.Replace(typeof(System.Web.Http.Dispatcher.IHttpControllerActivator), new ControllerActivator(_container));

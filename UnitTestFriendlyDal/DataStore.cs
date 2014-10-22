@@ -5,21 +5,48 @@ using NHibernate.Linq;
 
 namespace UnitTestFriendlyDal
 {
-    public interface IDataStore : IDisposable
+
+    public interface IDomainAccessFactory
+    {
+        IDomainAccess OpenDomainAccess();
+    }
+    
+    public class DomainAccessFactory : IDomainAccessFactory
+    {
+        NHibernate.ISessionFactory _sessionFactory;
+
+        public DomainAccessFactory(NHibernate.ISessionFactory sessionFactory)
+        {
+            _sessionFactory = sessionFactory;
+        }
+        
+        public IDomainAccess OpenDomainAccess()
+        {
+            return new DomainAccess(_sessionFactory);
+        }
+    }
+    
+
+    public interface IDomainAccess : IDisposable
     {
         IQueryable<T> Query<T>();
         T Get<T>(object id);
+        T Load<T>(object id);
         object Save(object transientObject);
+        void Evict<T>(object id);        
     }
 
-    public class DataStore : IDataStore
+    class DomainAccess : IDomainAccess
     {
 
         NHibernate.ISessionFactory _sessionFactory;
         NHibernate.ISession _session;
         NHibernate.ITransaction _transaction;
 
-        public DataStore(NHibernate.ISessionFactory sessionFactory)
+
+
+
+        public DomainAccess(NHibernate.ISessionFactory sessionFactory)
         {
             _sessionFactory = sessionFactory;
             _session = _sessionFactory.OpenSession();
@@ -27,32 +54,64 @@ namespace UnitTestFriendlyDal
         }
 
 
-        IQueryable<T> IDataStore.Query<T>()
+        IQueryable<T> IDomainAccess.Query<T>()
         {
             return _session.Query<T>();
         }
 
 
-        T IDataStore.Get<T>(object id)
+        T IDomainAccess.Get<T>(object id)
         {
             return _session.Get<T>(id);
         }
 
-        void IDisposable.Dispose()
+        T IDomainAccess.Load<T>(object id)
         {
-            // Because transaction is a cross-cutting concern
-            _transaction.Commit();
-            _transaction.Dispose();
-            _session.Dispose();
+            return _session.Load<T>(id);
         }
 
-        public object Save(object transientObject)
+
+
+        void IDomainAccess.Evict<T>(object id)
+        {
+            _sessionFactory.Evict(typeof(T), id);            
+        }
+        
+    
+
+        object IDomainAccess.Save(object transientObject)
         {
             return _session.Save(transientObject);
         }
 
+        
+        // Because transaction is a cross-cutting concern. It should be automated
+        void IDisposable.Dispose()
+        {
+             // http://www.hibernatingrhinos.com/products/nhprof/learn/alert/donotuseimplicittransactions
+                    
+            _transaction.Commit();
+            _transaction.Dispose();
+            _session.Dispose();            
+        }
+
+
+
+
+
+
     }
 
+
+    public static class LinqExtensionMethods
+    {
+        public static IQueryable<T> GetPage<T>(this IQueryable<T> query, int pageLimit, int pageNumber)
+        {
+            var paged = query.Take(pageLimit).Skip(pageLimit * (pageNumber - 1));
+
+            return paged;
+        }
+    }
 
 
     /// <summary>

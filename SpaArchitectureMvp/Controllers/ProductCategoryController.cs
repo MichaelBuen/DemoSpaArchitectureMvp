@@ -14,18 +14,18 @@ namespace SpaArchitectureMvp.Controllers
 {
     public class ProductCategoryController : ApiController
     {
-        
-        NHibernate.ISessionFactory _sf;
-        public ProductCategoryController(NHibernate.ISessionFactory sf)
+
+        IDomainAccessFactory _daf;
+        public ProductCategoryController(IDomainAccessFactory daf)
         {
-            _sf = sf;
+            _daf = daf;
         }
 
 
         // GET api/<controller>
         public IEnumerable<ProductCategoryDto> Get()
         {
-            using (IDataStore ds = new DataStore(_sf))
+            using (var ds = _daf.OpenDomainAccess())
             {
                 return TheProduction.ProductCategory.GetAll(ds);
             }

@@ -59,13 +59,13 @@
     <Compile Include="ThePerson.Person.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\JunBet\UnitTestFriendlyDal\UnitTestFriendlyDal.csproj">
-      <Project>{174d3964-209d-4338-ada0-052c224c0af9}</Project>
-      <Name>UnitTestFriendlyDal</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Dto\Dto.csproj">
       <Project>{4b7f67f8-d31b-4dd6-92e6-23ae07ceec39}</Project>
       <Name>Dto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UnitTestFriendlyDal\UnitTestFriendlyDal.csproj">
+      <Project>{174d3964-209d-4338-ada0-052c224c0af9}</Project>
+      <Name>UnitTestFriendlyDal</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

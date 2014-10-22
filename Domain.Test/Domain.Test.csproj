@@ -67,10 +67,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\JunBet\UnitTestFriendlyDal\UnitTestFriendlyDal.csproj">
-      <Project>{174d3964-209d-4338-ada0-052c224c0af9}</Project>
-      <Name>UnitTestFriendlyDal</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DomainMapping\DomainMapping.csproj">
       <Project>{3638700c-9c7d-49d1-89e6-75886ba2665c}</Project>
       <Name>DomainMapping</Name>
@@ -78,6 +74,10 @@
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{bc42e605-940c-46df-bffa-ae4a5ff73c23}</Project>
       <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UnitTestFriendlyDal\UnitTestFriendlyDal.csproj">
+      <Project>{174d3964-209d-4338-ada0-052c224c0af9}</Project>
+      <Name>UnitTestFriendlyDal</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
