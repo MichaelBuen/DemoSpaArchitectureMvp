@@ -13,7 +13,7 @@ namespace Domain
     {
         public class ProductCategory
         {
-            public int ProductCategoryId { get; set; }
+            public int    ProductCategoryId   { get; set; }
             public string ProductCategoryName { get; set; }
 
             public static IEnumerable<ProductionDto.ProductCategory> GetAll(IDomainAccess ds)

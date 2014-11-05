@@ -18,7 +18,7 @@ namespace Domain
             
 
             public              ProductionDomain.ProductCategory   ProductCategory { get; protected internal set; }
-            public              string                          ProductName     { get; protected internal set; }
+            public              string                             ProductName     { get; protected internal set; }
 
             public static int Save(IDomainAccess ds, ProductionDto.Product dto)
             {
