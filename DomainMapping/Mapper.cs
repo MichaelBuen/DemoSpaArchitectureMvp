@@ -58,7 +58,7 @@ namespace DomainMapping
             });
 
 
-            System.Collections.Generic.IEnumerable<System.Type> entities = typeof(Domain.ThePerson.Person).Assembly.GetExportedTypes()
+            System.Collections.Generic.IEnumerable<System.Type> entities = typeof(Domain.PersonDomain.Person).Assembly.GetExportedTypes()
                 .Where(x => !(x.IsAbstract && x.IsSealed)); // exclude static 
 
 
@@ -202,8 +202,10 @@ namespace DomainMapping
 
             string className = fullNameSplit[1];
 
-            // Last() skips the other namespace(s). 3 skips the word The
-            string schemaName = fullNameSplit[0].Split('.').Last().Substring(3); 
+            // Last() skips the other namespace(s)
+            string schemaDomainName = fullNameSplit[0].Split('.').Last();
+
+            string schemaName = schemaDomainName.Substring(0, schemaDomainName.Length - "Domain".Length); 
 
             string sqlServerFullName = schemaName + "." + className;
             classCustomizer.Table(sqlServerFullName);

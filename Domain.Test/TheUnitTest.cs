@@ -18,7 +18,7 @@ namespace Domain.Test
                 string expectedCategory = "Car";
 
                 // Act
-                var p = ds.Get<TheProduction.Product>(1);
+                var p = ds.Get<ProductionDomain.Product>(1);
 
                 // Assert
                 Assert.AreEqual(expectedProduct, p.ProductName);

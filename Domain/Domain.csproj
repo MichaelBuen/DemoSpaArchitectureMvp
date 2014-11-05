@@ -47,8 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TheProduction.ProductCategory.cs" />
-    <Compile Include="TheProduction.Product.cs" />
+    <Compile Include="ProductionDomain.ProductCategory.cs" />
+    <Compile Include="ProductionDomain.Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Compile Include="ThePerson.Person.cs" />
+    <Compile Include="PersonDomain.Person.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dto\Dto.csproj">

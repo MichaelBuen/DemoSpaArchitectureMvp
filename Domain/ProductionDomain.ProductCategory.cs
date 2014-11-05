@@ -9,17 +9,17 @@ using UnitTestFriendlyDal;
 
 namespace Domain
 {
-    public static partial class TheProduction
+    public static partial class ProductionDomain
     {
         public class ProductCategory
         {
             public int ProductCategoryId { get; set; }
             public string ProductCategoryName { get; set; }
 
-            public static IEnumerable<ProductCategoryDto> GetAll(IDomainAccess ds)
+            public static IEnumerable<ProductionDto.ProductCategory> GetAll(IDomainAccess ds)
             {
                 return ds.Query<ProductCategory>().MakeCacheable().ToList()
-                    .Select(x => new ProductCategoryDto { Id = x.ProductCategoryId, Name = x.ProductCategoryName }); 
+                    .Select(x => new ProductionDto.ProductCategory { Id = x.ProductCategoryId, Name = x.ProductCategoryName }); 
             }     
         }
     }

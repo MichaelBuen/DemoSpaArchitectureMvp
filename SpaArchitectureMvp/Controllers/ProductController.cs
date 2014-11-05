@@ -21,18 +21,18 @@ namespace SpaArchitectureMvp.Controllers
         public IEnumerable<string> Get()
         {
             using(var ds = _daf.OpenDomainAccess())
-            {
-                return ds.Query<TheProduction.Product>().Select(x => x.ProductName).ToList();
+            {                
+                return ds.Query<ProductionDomain.Product>().Select(x => x.ProductName).ToList();
             }
         }
 
 
         
-        public object Post(ProductDto dto)
+        public object Post(ProductionDto.Product dto)
         {
             using (var ds = _daf.OpenDomainAccess())
             {
-                return new { SavedId = TheProduction.Product.Save(ds,dto) };
+                return new { SavedId = ProductionDomain.Product.Save(ds,dto) };
             }
         }
     }

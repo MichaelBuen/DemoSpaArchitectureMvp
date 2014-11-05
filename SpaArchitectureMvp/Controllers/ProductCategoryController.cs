@@ -23,11 +23,11 @@ namespace SpaArchitectureMvp.Controllers
 
 
         // GET api/<controller>
-        public IEnumerable<ProductCategoryDto> Get()
+        public IEnumerable<ProductionDto.ProductCategory> Get()
         {
             using (var ds = _daf.OpenDomainAccess())
             {
-                return TheProduction.ProductCategory.GetAll(ds);
+                return ProductionDomain.ProductCategory.GetAll(ds);
             }
         }
 

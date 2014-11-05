@@ -10,17 +10,17 @@ using Dto;
 
 namespace Domain
 {
-    public static partial class TheProduction
+    public static partial class ProductionDomain
     {
         public class Product
         {
             protected internal  int                             ProductId       { get; set; }
             
 
-            public              TheProduction.ProductCategory   ProductCategory { get; protected internal set; }
+            public              ProductionDomain.ProductCategory   ProductCategory { get; protected internal set; }
             public              string                          ProductName     { get; protected internal set; }
 
-            public static int Save(IDomainAccess ds, ProductDto dto)
+            public static int Save(IDomainAccess ds, ProductionDto.Product dto)
             {
                 var p = new Product
                 {
