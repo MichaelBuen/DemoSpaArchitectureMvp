@@ -34,9 +34,7 @@ namespace SpaArchitectureMvp
             // http://stackoverflow.com/questions/26948063/resolve-instances-in-static-functions-using-lightinject
             _container.Register<ISampleService, SampleService>(new LightInject.PerContainerLifetime());
 
-            _container.Register<NHibernate.ISessionFactory>(factory => {
-                return DomainMapping.Mapper.SessionFactory;
-            }, new LightInject.PerContainerLifetime());
+            _container.Register<NHibernate.ISessionFactory>(factory => DomainMapping.Mapper.SessionFactory, new LightInject.PerContainerLifetime());
 
             _container.Register<IDomainAccessFactory>(factory => new DomainAccessFactory(_container.GetInstance<NHibernate.ISessionFactory>()), new LightInject.PerContainerLifetime());
 
