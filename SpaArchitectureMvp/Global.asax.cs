@@ -27,7 +27,7 @@ namespace SpaArchitectureMvp
 
             foreach (var controller in assembly.GetTypes().Where(t => typeof(ApiController).IsAssignableFrom(t)))
             {
-                _container.Register(controller, new LightInject.PerScopeLifetime()); 
+                _container.Register(controller); 
             }
 
             // LightInject's singleton is PerContainerLifetime
@@ -68,17 +68,18 @@ namespace SpaArchitectureMvp
             Type controllerType)
         {
 
-            using (_container.BeginScope())
+
+
+            using(_container.BeginScope())
             {
-                var controller = (System.Web.Http.Controllers.IHttpController)_container.GetInstance(controllerType);
+                var controller = (System.Web.Http.Controllers.IHttpController)_container.GetInstance(controllerType);                        
                 return controller;
-            }
-            
-            
+            }            
         }
 
-      
     }
+
+
 
     public interface ISampleService
     {
@@ -94,4 +95,6 @@ namespace SpaArchitectureMvp
             return "Hello Kel " + Guid.NewGuid();
         }
     }
+
+    
 }
